@@ -4,7 +4,7 @@ Support release and pipeline templates for Stark &amp; Wayne Concourse training 
 This training session build off of the two day BOSH course.  The goal of the training is to deploy and
 upgrade the Hello World bosh release that is deployed in that session.
 
-
+---
 ## Lab 1: Setup your Environment
 ### How to setup this lab
 * You'll need several environment parameters (provided by instructor in a proctored session)
@@ -51,6 +51,7 @@ fly --target concourse-tutorial   login --concourse-url $CONCOURSE_PIPELINE_URL 
 * Find your pipeline on the Left of the interface
 * New pipelines start in a paused state, you can now run your pipeline
 
+---
 ## Lab 2: Building Our first Tasks
 * Open ci/tasks/upload-release.sh
 * Add the following environment variables, provided by the course proctor
@@ -72,6 +73,7 @@ Have a look at ci/nginx-pipeline-with-task.yml, and we'll merge those changes in
 ### Update the pipeline
 * `fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
 
+---
 ## Lab 3: Add a Deploy Task to the release
 * Open ci/tasks/upload-release.sh
 * Add the following environment variables, provided by the course proctor
@@ -93,8 +95,7 @@ working state.  We'll want to create that release again here and push it back to
 * `spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml`
 * `fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
 
-
-
+---
 ### Extra Credit
 * Refactor the upload-release task to move the training-bosh.pem file in to a file
 or s3 resource
