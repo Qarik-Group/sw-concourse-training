@@ -53,7 +53,7 @@ fly --target concourse-tutorial   login --concourse-url $CONCOURSE_PIPELINE_URL 
 ```
 
 ```bash
-  fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
 
 ### Login to the concourse WEB UI
