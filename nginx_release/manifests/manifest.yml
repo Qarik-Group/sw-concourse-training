@@ -10,7 +10,7 @@ instance_groups:
   - name: default
   stemcell: default
   vm_type: small
-name: nginx-release-byllc
+name: byllc-nginx
 release:
   name: byllc-nginx
 releases:
