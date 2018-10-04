@@ -99,6 +99,12 @@ Have a look at ci/lab2.yml, and we'll merge those changes in to your pipeline
 spruce merge --prune github --prune release  ci/settings.yml ci/lab2.yml > ci/pipeline.yml
 ```
 
+### Commit your release and push it back up to your Github fork
+```bash
+git commit -am 'updated release task'
+git push
+```
+
 ### Update the pipeline
 Every time we make a chance to our pipeline we'll need to reset the pipeline
 ```bash
