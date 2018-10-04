@@ -28,7 +28,7 @@ You'll need several environment parameters (provided by instructor in a proctore
 * Fork this repository in to your own github account
 * Clone your fork of this repository locally
 ```bash
-git clone git@github.com/$GITHUB_USERNAME/concourse-training.git
+git clone git@github.com/$GITHUB_USERNAME/sw-concourse-training.git
 ```
 
 * Edit the `nginx_release/ci/settings.yml` file
