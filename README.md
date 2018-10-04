@@ -1,6 +1,4 @@
 # Concourse Training Labs
-Support release and pipeline templates for Stark &amp; Wayne Concourse training single day Session.
-
 This training session build off of the two day BOSH course.  The goal of the training is to deploy and
 upgrade the Hello World bosh release that is deployed in that session.
 
