@@ -43,6 +43,7 @@ source set_env.sh
 ### Create your release
   ```bash
   cd nginx_release
+  mkdir releases
   bosh create-release --force --tarball releases/release.gz
   ```
   You should now have a BOSH Release in the releases of this project
