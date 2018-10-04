@@ -1,4 +1,4 @@
-name: (( grab release.name )) 
+name: (( grab release.name ))
 
 releases:
 - name: nginx
@@ -7,7 +7,7 @@ releases:
 stemcells:
 - alias: default
   os: ubuntu-trusty
-  version: 3586.16
+  version: 3586.46
 
 instance_groups:
 - name: nginx
