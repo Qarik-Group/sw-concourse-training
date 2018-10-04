@@ -7,12 +7,14 @@ upgrade the Hello World bosh release that is deployed in that session.
 ---
 ## Lab 1: Setup your Environment
 ### How to setup this lab
-* You'll need several environment parameters (provided by instructor in a proctored session)
-  * CONCOURSE_TEAM_NAME
-  * CONCOURSE_PIPELINE_URL
-  * GITHUB_USERNAME
-  * CONCOURSE_USERNAME
-  * CONCOURSE_PASSWORD
+You'll need several environment parameters (provided by instructor in a proctored session)
+  ```bash 
+  export CONCOURSE_TEAM_NAME=
+  export CONCOURSE_PIPELINE_URL=
+  export GITHUB_USERNAME=
+  export CONCOURSE_USERNAME=
+  export CONCOURSE_PASSWORD=
+  ```
 
 * Fork this repository in to your own github account
 * Clone your fork of this repository locally
@@ -71,7 +73,7 @@ Have a look at ci/nginx-pipeline-with-task.yml, and we'll merge those changes in
 `spruce merge --prune github --prune release  ci/settings.yml ci/lab2.yml > ci/pipeline.yml`
 
 ### Update the pipeline
-* `fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
+`fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
 
 ---
 ## Lab 3: Add a Deploy Task to the release
@@ -91,9 +93,9 @@ Have a look at ci/nginx-pipeline-with-task.yml, and we'll merge those changes in
 In the BOSH Training session we learned to create a BOSH release. Here that release has been provided in a
 working state.  We'll want to create that release again here and push it back to your fork of this repository.
 
-* `spruce merge ci/settings.yml mainfests/nginx-release.yml > manifests/manifest.yml`
-* `spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml`
-* `fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
+`spruce merge ci/settings.yml mainfests/nginx-release.yml > manifests/manifest.yml`
+`spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml`
+`fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
 
 ---
 ### Extra Credit
