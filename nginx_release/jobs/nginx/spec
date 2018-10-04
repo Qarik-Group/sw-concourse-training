@@ -1,0 +1,13 @@
+name: nginx
+
+templates:
+  ctl.erb: bin/ctl                # /var/vcap/jobs/nginx/bin/ctl
+  index.html.erb: html/index.html # /var/vcap/jobs/nginx/html/index.html
+
+packages:
+- nginx
+
+properties:
+  index:
+    description: Contents of your index.html
+    default: <html><body><p>Hello World</p></body></html>

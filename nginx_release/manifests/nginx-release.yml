@@ -1,0 +1,28 @@
+name: (( grab release.name )) 
+
+releases:
+- name: nginx
+  version: latest
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: 3586.16
+
+instance_groups:
+- name: nginx
+  instances: 1
+  azs: [z1]
+  jobs:
+  - name: nginx
+    release: nginx
+  vm_type: small
+  stemcell: default
+  networks:
+  - name: default
+
+update:
+  canaries: 1
+  max_in_flight: 10
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000

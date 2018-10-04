@@ -1,0 +1,34 @@
+---
+jobs:
+- name: job-upload-release
+  public: true
+  plan:
+  - get: source-code
+    params: { depth: 1 }
+  - task: upload-release
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: starkandwayne/concourse}
+      run:
+        path: source-code/nginx_release/ci/tasks/upload-release.sh
+      inputs:
+        - name: source-code
+  - task: deploy-release
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: starkandwayne/concourse}
+      run:
+        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+      inputs:
+        - name: source-code
+
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: (( grab github.repository ))
+    branch: (( grab github.branch ))

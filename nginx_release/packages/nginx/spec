@@ -1,0 +1,7 @@
+name: nginx
+
+dependencies: []
+
+files:
+- nginx.tar.gz
+- nginx.conf

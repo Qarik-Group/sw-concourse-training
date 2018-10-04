@@ -1,0 +1,12 @@
+set -e -x
+
+tar xzf nginx.tar.gz
+pushd nginx-*
+  ./configure \
+    --prefix=${BOSH_INSTALL_TARGET} \
+    --without-http_rewrite_module
+   make
+   make install
+popd
+
+cp nginx.conf ${BOSH_INSTALL_TARGET}/conf/

@@ -1,0 +1,15 @@
+---
+jobs:
+- name: job-upload-release
+  public: true
+  plan:
+  - task: upload-release
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: starkandwayne/concourse}
+      run:
+        path: echo
+        args:
+          - "Eventually I will upload a bosh release"
