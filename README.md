@@ -5,7 +5,15 @@ This training session build off of the two day BOSH course.  The goal of the tra
 upgrade the Hello World bosh release that is deployed in that session.
 
 ---
+## Prerequisites
+  * `fly` cli is installed
+  * `bosh` cli is installed
+  * Familiarity with BOSH enough to understand a basic release
+  * A Github Account and your Github user name
+  
+---  
 ## Lab 1: Setup your Environment
+
 ### How to setup this lab
 You'll need several environment parameters (provided by instructor in a proctored session)
   ```bash 
