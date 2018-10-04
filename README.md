@@ -8,7 +8,7 @@ upgrade the Hello World bosh release that is deployed in that session.
   * `fly` cli is installed
   * `bosh` cli is installed
   * Familiarity with BOSH enough to understand a basic release
-  * Access to a lab BOSH director and all hte necessary credentials
+  * Access to a lab BOSH director and all the necessary credentials
   * A Github Account and your Github user name
   
 ---  
