@@ -106,13 +106,19 @@ In the BOSH Training session we learned to create a BOSH release. Here that rele
 working state.  We'll want to create that release again here and push it back to your fork of this repository.
 
 Have a look at `manifests/nginx-release.yml`, and we'll merge those changes in to your bosh release
-`spruce merge ci/settings.yml manifests/nginx-release.yml > manifests/manifest.yml`
+```bash 
+spruce merge ci/settings.yml manifests/nginx-release.yml > manifests/manifest.yml
+```
 
 Have a look at `ci/lab3.yml` and we'll merge those in to your pipeline
-`spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml`
+```bash
+spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml
+```
 
 Once again we set the pipeline 
-`fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
+```bash
+fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+```
 
 ---
 ---
