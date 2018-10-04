@@ -18,13 +18,14 @@ upgrade the Hello World bosh release that is deployed in that session.
 * Clone your fork of this repository locally
   * `git clone git@github.com/$GITHUB_USERNAME/concourse-training.git`
   * Edit the nginx_release/ci/settings.yml file
+  * rename set_env.sh.example to set_env.sh and fill in the information it asks for
 
 ### Create your release
   ```bash
   cd nginx_release
-  bosh create-release --force --tarball tarball.gz
+  bosh create-release --force --tarball releases/release.gz
   ```
-  You should now have a BOSH Release in the root of this project
+  You should now have a BOSH Release in the releases of this project
 
 ### Commit your release and push it back up to your Github fork
 ```bash
