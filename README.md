@@ -54,6 +54,11 @@ Visit <CONCOURE_URL> and get the URL from the lower right
 fly --target concourse-tutorial   login --concourse-url $CONCOURSE_PIPELINE_URL -k  -n $CONCOURSE_TEAM_NAME  -u $CONCOURSE_USERNAME -p $CONCOURSE_PASSWORD
 ```
 
+Have a look at `ci/lab1.yml`, and we'll merge those changes in to your pipeline
+```bash 
+spruce merge ci/settings.yml ci/lab1.yml > ci/pipeline.yml
+```
+
 ```bash
 fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
@@ -81,11 +86,16 @@ The rest of the task should look familiar if you've been through the BOSH traini
 But we need to actually make sure our pipeline knows how to access this release.
 
 ### Add the task to the pipeline yml
-Have a look at ci/nginx-pipeline-with-task.yml, and we'll merge those changes in to your pipeline
-`spruce merge --prune github --prune release  ci/settings.yml ci/lab2.yml > ci/pipeline.yml`
+Have a look at ci/lab2.yml, and we'll merge those changes in to your pipeline
+```bash 
+spruce merge --prune github --prune release  ci/settings.yml ci/lab2.yml > ci/pipeline.yml
+```
 
 ### Update the pipeline
-`fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
+Every time we make a chance to our pipeline we'll need to reset the pipeline
+```bash
+fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+```
 
 ---
 ## Lab 3: Add a Deploy Task to the release
