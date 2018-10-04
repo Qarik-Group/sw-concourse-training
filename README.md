@@ -5,7 +5,7 @@ This training session build off of the two day BOSH course.  The goal of the tra
 upgrade the Hello World bosh release that is deployed in that session.
 
 
-##Lab 1: Setup your Environment
+## Lab 1: Setup your Environment
 ### How to setup this lab
 * You'll need several environment parameters (provided by instructor in a proctored session)
   * CONCOURSE_TEAM_NAME
@@ -19,7 +19,7 @@ upgrade the Hello World bosh release that is deployed in that session.
   * `git clone git@github.com/$GITHUB_USERNAME/concourse-training.git`
   * Edit the nginx_release/ci/settings.yml file
 
-###Create your release
+### Create your release
   ```bash
   cd nginx_release
   bosh create-release --force --tarball tarball.gz
