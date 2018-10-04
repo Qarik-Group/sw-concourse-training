@@ -25,8 +25,11 @@ You'll need several environment parameters (provided by instructor in a proctore
 * Fork this repository in to your own github account
 * Clone your fork of this repository locally
   * `git clone git@github.com/$GITHUB_USERNAME/concourse-training.git`
-  * Edit the nginx_release/ci/settings.yml file
-  * rename set_env.sh.example to set_env.sh and fill in the information it asks for
+
+* Edit the nginx_release/ci/settings.yml file
+These settings will be interpolated in to other files throughout the tuotorial and save you some typing
+This is also a common pattern used in managing more complicated pipelines
+* rename set_env.sh.example to set_env.sh and fill in the information it asks for
 
 ### Create your release
   ```bash
