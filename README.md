@@ -3,6 +3,7 @@ This training session build off of the two day BOSH course.  The goal of the tra
 upgrade the Hello World bosh release that is deployed in that session.
 
 ---
+---
 ## Prerequisites
   * `fly` cli is installed
   * `bosh` cli is installed
@@ -10,6 +11,7 @@ upgrade the Hello World bosh release that is deployed in that session.
   * A Github Account and your Github user name
   
 ---  
+---
 ## Lab 1: Setup your Environment
 
 ### How to setup this lab
@@ -63,6 +65,7 @@ fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-
 * New pipelines start in a paused state, you can now run your pipeline
 
 ---
+---
 ## Lab 2: Building Our first Tasks
 * Open ci/tasks/upload-release.sh
 * Add the following environment variables, provided by the course proctor
@@ -106,6 +109,7 @@ working state.  We'll want to create that release again here and push it back to
 `spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml`
 `fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
 
+---
 ---
 ### Extra Credit
 * Refactor the upload-release task to move the training-bosh.pem file in to a file
