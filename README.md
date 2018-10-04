@@ -71,7 +71,7 @@ fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-
 ```
 
 ### Login to the concourse WEB UI
-* Visit the pipeline URL http://<<CONCOURSE_URL>>
+* Visit the pipeline URL https://<<CONCOURSE_URL>>
 * Log In with provided credentials
 * Find your pipeline on the Left of the interface
 * New pipelines start in a paused state, you can now run your pipeline
