@@ -67,7 +67,7 @@ fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-
 ---
 ---
 ## Lab 2: Building Our first Tasks
-* Open ci/tasks/upload-release.sh
+* Open `ci/tasks/upload-release.sh`
 * Add the following environment variables, provided by the course proctor
 
 ```bash
@@ -105,8 +105,13 @@ Have a look at ci/nginx-pipeline-with-task.yml, and we'll merge those changes in
 In the BOSH Training session we learned to create a BOSH release. Here that release has been provided in a
 working state.  We'll want to create that release again here and push it back to your fork of this repository.
 
-`spruce merge ci/settings.yml mainfests/nginx-release.yml > manifests/manifest.yml`
+Have a look at `manifests/nginx-release.yml`, and we'll merge those changes in to your bosh release
+`spruce merge ci/settings.yml manifests/nginx-release.yml > manifests/manifest.yml`
+
+Have a look at `ci/lab3.yml` and we'll merge those in to your pipeline
 `spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pipeline.yml`
+
+Once again we set the pipeline 
 `fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline`
 
 ---
