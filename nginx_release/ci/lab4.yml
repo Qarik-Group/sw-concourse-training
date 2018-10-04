@@ -5,6 +5,7 @@ jobs:
   plan:
   - get: source-code
     params: { depth: 1 }
+  - get: cert-file
   - task: upload-release
     config:
       platform: linux
@@ -12,19 +13,10 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release.sh
+        path:  source-code/nginx_release/ci/tasks/upload-release.sh
       inputs:
         - name: source-code
-  - task: deploy-release
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source: {repository: starkandwayne/concourse}
-      run:
-        path: source-code/nginx_release/ci/tasks/deploy-release.sh
-      inputs:
-        - name: source-code
+        - name: cert-file
 
 resources:
 - name: source-code
@@ -32,3 +24,8 @@ resources:
   source:
     uri: (( grab github.repository ))
     branch: (( grab github.branch ))
+- name: cert-file
+  type: file-url
+  source:
+    url: https://unreal-snw.s3.amazonaws.com/training-bosh.pem
+    filename: training-bosh.pem

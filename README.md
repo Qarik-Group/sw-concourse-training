@@ -32,7 +32,6 @@ upgrade the Hello World bosh release that is deployed in that session.
 git commit -am 'updated release for deployment'
 git push
 ```
-fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 
 ### Installing the `fly` Command
 Visit <CONCOURE_URL> and get the URL from the lower right
