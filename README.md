@@ -8,6 +8,8 @@ upgrade the Hello World bosh release that is deployed in that session.
   * `fly` cli is installed
   * `bosh` cli is installed
   * Familiarity with BOSH enough to understand a basic release
+  * Access to a BOSH director and all hte necessary credentials
+  * The BOSH Director should not be a production director
   * A Github Account and your Github user name
   
 ---  
