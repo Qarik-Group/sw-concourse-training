@@ -32,8 +32,7 @@ bosh:
   client: admin
   client_secret: agile-defense
   deployment: dave-nginx
-  director: https://10.200.192.0:25555/
-  environment: training-bosh
+  environment: https://10.200.192.0:25555/
 jobs:
 - name: job-upload-release
   plan:
@@ -81,8 +80,7 @@ jobs:
         BOSH_CLIENT: admin
         BOSH_CLIENT_SECRET: agile-defense
         BOSH_DEPLOYMENT: dave-nginx
-        BOSH_DIRECTOR: https://10.200.192.0:25555/
-        BOSH_ENVIRONMENT: training-bosh
+        BOSH_ENVIRONMENT: https://10.200.192.0:25555/
       platform: linux
       run:
         path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
@@ -137,8 +135,7 @@ jobs:
         BOSH_CLIENT: admin
         BOSH_CLIENT_SECRET: agile-defense
         BOSH_DEPLOYMENT: dave-nginx
-        BOSH_DIRECTOR: https://10.200.192.0:25555/
-        BOSH_ENVIRONMENT: training-bosh
+        BOSH_ENVIRONMENT: https://10.200.192.0:25555/
       platform: linux
       run:
         path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
