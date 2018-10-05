@@ -12,13 +12,7 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
-      params:
-        BOSH_ENVIRONMENT: (( grab bosh.environment ))
-        BOSH_CLIENT: (( grab bosh.client ))
-        BOSH_CLIENT_SECRET: (( grab bosh.client_secret ))
-        BOSH_DEPLOYMENT: (( grab bosh.deployment ))
-        BOSH_CA_CERT: (( grab bosh.ca_cert ))
+        path: source-code/nginx_release/ci/tasks/upload-release.sh
       inputs:
         - name: source-code
 - name: job-deploy-release
@@ -35,13 +29,7 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
-      params:
-        BOSH_ENVIRONMENT: (( grab bosh.environment ))
-        BOSH_CLIENT: (( grab bosh.client ))
-        BOSH_CLIENT_SECRET: (( grab bosh.client_secret ))
-        BOSH_DEPLOYMENT: (( grab bosh.deployment ))
-        BOSH_CA_CERT: (( grab bosh.ca_cert ))
+        path: source-code/nginx_release/ci/tasks/deploy-release.sh
       inputs:
         - name: source-code
 
