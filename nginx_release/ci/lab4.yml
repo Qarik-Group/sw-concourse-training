@@ -19,6 +19,7 @@ jobs:
         BOSH_CLIENT_SECRET: (( grab bosh.client_secret ))
         BOSH_DIRECTOR: (( grab bosh.director ))
         BOSH_DEPLOYMENT: (( grab bosh.deployment ))
+        BOSH_CA_CERT: (( grab bosh.ca_cert ))
       inputs:
         - name: source-code
 - name: job-deploy-release
@@ -42,6 +43,7 @@ jobs:
         BOSH_CLIENT_SECRET: (( grab bosh.client_secret ))
         BOSH_DIRECTOR: (( grab bosh.director ))
         BOSH_DEPLOYMENT: (( grab bosh.deployment ))
+        BOSH_CA_CERT: (( grab bosh.ca_cert ))
       inputs:
         - name: source-code
 
