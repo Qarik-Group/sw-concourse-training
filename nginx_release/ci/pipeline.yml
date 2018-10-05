@@ -1,3 +1,9 @@
+bosh:
+  client: admin
+  client_secret: agile-defense
+  deployment: dave-nginx
+  director: https://10.200.192.0:25555/
+  environment: training-bosh
 jobs:
 - name: job-upload-release
   plan:
@@ -11,10 +17,25 @@ jobs:
         type: docker-image
       inputs:
       - name: source-code
+      params:
+        BOSH_CLIENT: admin
+        BOSH_CLIENT_SECRET: agile-defense
+        BOSH_DEPLOYMENT: dave-nginx
+        BOSH_DIRECTOR: https://10.200.192.0:25555/
+        BOSH_ENVIRONMENT: training-bosh
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release.sh
+        path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
     task: upload-release
+  public: true
+- name: job-deploy-release
+  plan:
+  - get: source-code
+    params:
+      depth: 1
+    passed:
+    - job-upload-release
+    trigger: true
   - config:
       image_resource:
         source:
@@ -22,15 +43,26 @@ jobs:
         type: docker-image
       inputs:
       - name: source-code
+      params:
+        BOSH_CLIENT: admin
+        BOSH_CLIENT_SECRET: agile-defense
+        BOSH_DEPLOYMENT: dave-nginx
+        BOSH_DIRECTOR: https://10.200.192.0:25555/
+        BOSH_ENVIRONMENT: training-bosh
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+        path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
     task: deploy-release
   public: true
+meta:
+  name: dave-demo
+  pipeline: dave-demo
+  target: training
+  url: https://pipes.starkandwayne.com
 resources:
 - name: source-code
   source:
     branch: master
-    uri: https://github.com/byllc/sw-concourse-training.git
+    uri: https://github.com/daviddob/sw-concourse-training.git
   type: git
 

@@ -12,15 +12,22 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release.sh
+        path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
       params:
         BOSH_ENVIRONMENT: (( grab bosh.environment ))
         BOSH_CLIENT: (( grab bosh.client ))
-        BOSH_CLIENT_SECRET: (( grab bosh.cleint_secret ))
+        BOSH_CLIENT_SECRET: (( grab bosh.client_secret ))
         BOSH_DIRECTOR: (( grab bosh.director ))
         BOSH_DEPLOYMENT: (( grab bosh.deployment ))
       inputs:
         - name: source-code
+- name: job-deploy-release
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+    passed: [job-upload-release]
+    params: { depth: 1 }
   - task: deploy-release
     config:
       platform: linux
@@ -28,11 +35,11 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+        path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
       params:
         BOSH_ENVIRONMENT: (( grab bosh.environment ))
         BOSH_CLIENT: (( grab bosh.client ))
-        BOSH_CLIENT_SECRET: (( grab bosh.cleint_secret ))
+        BOSH_CLIENT_SECRET: (( grab bosh.client_secret ))
         BOSH_DIRECTOR: (( grab bosh.director ))
         BOSH_DEPLOYMENT: (( grab bosh.deployment ))
       inputs:
