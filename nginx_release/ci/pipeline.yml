@@ -47,10 +47,10 @@ jobs:
       inputs:
       - name: source-code
       params:
-        BOSH_CA_CERT: ((bosh.ca_cert))
+        BOSH_CA_CERT: ((bosh.ca-cert))
         BOSH_CLIENT: ((bosh.client))
-        BOSH_CLIENT_SECRET: ((bosh.client_secret))
-        BOSH_DEPLOYMENT: ((bosh.deployment))
+        BOSH_CLIENT_SECRET: ((bosh.client-secret))
+        BOSH_DEPLOYMENT: dave-nginx
         BOSH_ENVIRONMENT: ((bosh.environment))
       platform: linux
       run:
@@ -73,10 +73,10 @@ jobs:
       inputs:
       - name: source-code
       params:
-        BOSH_CA_CERT: ((bosh.ca_cert))
+        BOSH_CA_CERT: ((bosh.ca-cert))
         BOSH_CLIENT: ((bosh.client))
-        BOSH_CLIENT_SECRET: ((bosh.client_secret))
-        BOSH_DEPLOYMENT: ((bosh.deployment))
+        BOSH_CLIENT_SECRET: ((bosh.client-secret))
+        BOSH_DEPLOYMENT: dave-nginx
         BOSH_ENVIRONMENT: ((bosh.environment))
       platform: linux
       run:

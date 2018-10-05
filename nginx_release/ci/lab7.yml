@@ -14,11 +14,11 @@ jobs:
       run:
         path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
       params:
+        BOSH_DEPLOYMENT: ((grab bosh.deployment))
         BOSH_ENVIRONMENT: ((bosh.environment))
         BOSH_CLIENT: ((bosh.client))
-        BOSH_CLIENT_SECRET: ((bosh.client_secret))
-        BOSH_DEPLOYMENT: ((bosh.deployment))
-        BOSH_CA_CERT: ((bosh.ca_cert))
+        BOSH_CLIENT_SECRET: ((bosh.client-secret))
+        BOSH_CA_CERT: ((bosh.ca-cert))
       inputs:
         - name: source-code
 - name: job-deploy-release
@@ -37,11 +37,11 @@ jobs:
       run:
         path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
       params:
+        BOSH_DEPLOYMENT: ((grab bosh.deployment))
         BOSH_ENVIRONMENT: ((bosh.environment))
         BOSH_CLIENT: ((bosh.client))
-        BOSH_CLIENT_SECRET: ((bosh.client_secret))
-        BOSH_DEPLOYMENT: ((bosh.deployment))
-        BOSH_CA_CERT: ((bosh.ca_cert))
+        BOSH_CLIENT_SECRET: ((bosh.client-secret))
+        BOSH_CA_CERT: ((bosh.ca-cert))
       inputs:
         - name: source-code
 
