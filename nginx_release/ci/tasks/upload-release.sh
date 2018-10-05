@@ -5,7 +5,7 @@ set -x
 #The director is expected to be secured and only locally available for this lab session
 #But this does not demonostrate a best practice
 
-export BOSH_DEPLOYMENT=byllc-nginx
+export BOSH_DEPLOYMENT=dave-nginx
 export BOSH_DIRECTOR=https://10.200.192.0:25555/
 export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=agile-defense

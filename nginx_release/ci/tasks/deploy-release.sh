@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export BOSH_DEPLOYMENT=byllc-nginx
+export BOSH_DEPLOYMENT=dave-nginx
 export BOSH_DIRECTOR=https://10.200.192.0:25555/
 export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=agile-defense

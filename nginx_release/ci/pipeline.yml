@@ -1,38 +1,3 @@
-bosh:
-  ca_cert: |
-    -----BEGIN CERTIFICATE-----
-    MIIE5zCCAs+gAwIBAgIBAjANBgkqhkiG9w0BAQ0FADAcMRowGAYDVQQDExFjYS5u
-    Mjc3NDI2NDcxLnNzbDAeFw0xODA5MTIxODQzMDlaFw0yODA5MDkxODQzMDlaMBwx
-    GjAYBgNVBAMTEWNhLm4yNzc0MjY0NzEuc3NsMIICIjANBgkqhkiG9w0BAQEFAAOC
-    Ag8AMIICCgKCAgEAwXvDHHuJyIKP2w3bOEGJJKMz4kapmDEWneZR8f3mfGdF18Cj
-    LjnWd+R5yQJgQV64Jg1Uj9gnCh73BNRg7niAn95VoWNyOVbbxae2fDJ/gw7cSRQM
-    1sdC+wK6yjPIyEGBvHiehd11HJvwLcfMgOZ7GgCfeGw9cduEMLr+2/KdfMYksMi1
-    Qbj19wbAXi5lUOeW24AZdUr0u3pcnk5Cl3Emp3CsQlXmEVRDg2iuTE/Qiq/KuIWA
-    I9yoKDk/MFwhVOEADVjJh2TGW+gjoSDpX3cF3dTV3P38eic7mJVfRU+Sv1glcSGd
-    aTYn0WGfV3d+AAemkAiWLGBlYmTmVYvCxfGxe6T7gnKXRQ0ljRr7JZV4inBotouL
-    T+tHsYdO8FBjQdCIhpglrwL1cn+0xxgdKxUXj98Ze2cWrrKv58okMYASFFX9B/d5
-    hQkmjyjrL2ORsrWiOgO+271NYiaVRwFUhapdPy/q4TSzAo7hyW76bzd7NkbOUt0W
-    Ykhub/1bWpvYcWnXqzz2G69WKGdICGvOLC8FoRX6uh90ZnH+ncw/qQHgkpIjgGJS
-    MrCJuelDue18IyA2LtPxDa6a87QHeuL6KdOKR/N3iILHvjcgA8LGhvswgAjE3XwM
-    Lbx2Z7AGEWeEBOuax9LgSV2+vwqGzrkoc4q6oCcFGA2KAINeLt0r+thodY0CAwEA
-    AaM0MDIwEgYDVR0TAQH/BAgwBgEB/wIBATAcBgNVHREEFTATghFjYS5uMjc3NDI2
-    NDcxLnNzbDANBgkqhkiG9w0BAQ0FAAOCAgEAHWmbBSfr5A59wCjsxMdKwp0pMkt9
-    l0QlXqaTgVYy4JvcbURBvPu+h9YQlgx/zGRxKlah5yzK/96yDicpHFzdwZ7N1eom
-    ol4bwrEavybAU1RuCNmH2i/lNeKWqzsaiJph2We8wj2ozjc/Ks7ju8mroMPcaT9Q
-    teR0wv0pK3HoONJyxLnhl0+qD1eEY5O7TIC9V7mEXe6BCpr2t73pBNcXFuDIzXtK
-    yJVw9d1Zx3Z/IHfclDScTJCOvyAr1KMFloJDlesj9lDEPhHVRDObpCWhRtzeBObx
-    ifEYdiMQW16iyb1Ggx6iqPGOHF0YN9umWXSfcNoAl8yBArW79e+3IJ8cJ0nRS7CB
-    q7LaqoelyHXRPwpGZUD137XJPeQpt7fHLivbjGQoz1pThekoB/Jl9XLQT4ueHZ+b
-    imeeYKPciHjvEjYbwSt7CmXgwCgAX0D5YsaTBGtEg4kGlZ8ciF5+zfk/T0gH8Erq
-    dvZQA7v884On9InLMKA6GYDYKw8SFdxFnFcCjgKFNOri5XqErqvV/iWlY+d+Rz6H
-    nXL7pH1XxX/kCOkStWien366dCSHbj2MDw+SXFvGJqTlZQUOo0/SsLH4UDU4Mpey
-    ipssjAv4FVLgtmtq+322yfxCdLkABuqIz/dIk5q1cx3y6+FYrjRfhsyVcVLg/Gd3
-    HaCuBAnO87bBFwM=
-    -----END CERTIFICATE-----
-  client: admin
-  client_secret: agile-defense
-  deployment: dave-nginx
-  environment: https://10.200.192.0:25555/
 jobs:
 - name: job-upload-release
   plan:
@@ -46,25 +11,10 @@ jobs:
         type: docker-image
       inputs:
       - name: source-code
-      params:
-        BOSH_CA_CERT: ((bosh.ca-cert))
-        BOSH_CLIENT: ((bosh.client))
-        BOSH_CLIENT_SECRET: ((bosh.client-secret))
-        BOSH_DEPLOYMENT: dave-nginx
-        BOSH_ENVIRONMENT: ((bosh.environment))
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
+        path: source-code/nginx_release/ci/tasks/upload-release.sh
     task: upload-release
-  public: true
-- name: job-deploy-release
-  plan:
-  - get: source-code
-    params:
-      depth: 1
-    passed:
-    - job-upload-release
-    trigger: true
   - config:
       image_resource:
         source:
@@ -72,15 +22,9 @@ jobs:
         type: docker-image
       inputs:
       - name: source-code
-      params:
-        BOSH_CA_CERT: ((bosh.ca-cert))
-        BOSH_CLIENT: ((bosh.client))
-        BOSH_CLIENT_SECRET: ((bosh.client-secret))
-        BOSH_DEPLOYMENT: dave-nginx
-        BOSH_ENVIRONMENT: ((bosh.environment))
       platform: linux
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
+        path: source-code/nginx_release/ci/tasks/deploy-release.sh
     task: deploy-release
   public: true
 meta:
