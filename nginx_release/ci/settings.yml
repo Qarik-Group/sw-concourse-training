@@ -1,7 +1,14 @@
+---
+meta:
+  name:   dave-demo
+  target: training
+  url:    https://pipes.starkandwayne.com
+  pipeline: (( grab meta.name ))
+
 release:
-  name: <replace me>
+  name: dave-nginx
 
 github:
-  username: <replace me>
+  username: daviddob
   branch: master
   repository: (( concat "https://github.com/" github.username "/sw-concourse-training.git" ))
