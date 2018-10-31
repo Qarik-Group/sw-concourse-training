@@ -1,4 +1,4 @@
-name: dave-nginx
+name: <replace-me>-nginx
 
 releases:
 - name: nginx
