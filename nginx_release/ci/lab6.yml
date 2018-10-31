@@ -14,9 +14,9 @@ jobs:
       run:
         path: source-code/nginx_release/ci/tasks/upload-release-with-vars.sh
       params:
-        BOSH_DEPLOYMENT: dave-nginx
+        BOSH_DEPLOYMENT: <replace-me>-nginx
         BOSH_CLIENT: admin
-        BOSH_CLIENT_SECRET: agile-defense
+        BOSH_CLIENT_SECRET: <replace-me>
         BOSH_ENVIRONMENT: https://10.200.192.0:25555/
         BOSH_CA_CERT: |
           -----BEGIN CERTIFICATE-----
@@ -65,9 +65,9 @@ jobs:
       run:
         path: source-code/nginx_release/ci/tasks/deploy-release-with-vars.sh
       params:
-        BOSH_DEPLOYMENT: dave-nginx
+        BOSH_DEPLOYMENT: <replace-me>-nginx
         BOSH_CLIENT: admin
-        BOSH_CLIENT_SECRET: agile-defense
+        BOSH_CLIENT_SECRET: <replace-me>
         BOSH_ENVIRONMENT: https://10.200.192.0:25555/
         BOSH_CA_CERT: |
           -----BEGIN CERTIFICATE-----
