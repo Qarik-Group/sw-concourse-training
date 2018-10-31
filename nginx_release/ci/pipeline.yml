@@ -114,6 +114,6 @@ resources:
 - name: source-code
   source:
     branch: master
-    uri: https://github.com/daviddob/sw-concourse-training.git
+    uri: https://github.com/starkandwayne/sw-concourse-training.git
   type: git
 
