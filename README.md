@@ -1,5 +1,5 @@
 # Concourse Training Labs
-This training session build off of the two day BOSH course.  The goal of the training is to deploy and
+This training session built to be taken after our basic BOSH course.  The goal of the training is to deploy and
 upgrade the Hello World bosh release that is deployed in that session.
 
 ---
@@ -7,7 +7,7 @@ upgrade the Hello World bosh release that is deployed in that session.
 ## Prerequisites
   * `fly` cli is installed
   * `bosh` cli is installed
-  * Familiarity with BOSH enough to understand a basic release
+  * Familiarity with BOSH enough to understand a basic BOSH release
   * Access to a lab BOSH director and all the necessary credentials
   * A Github Account and your Github user name
   
@@ -16,19 +16,11 @@ upgrade the Hello World bosh release that is deployed in that session.
 ## Lab 1: Setup your Environment
 
 ### How to setup this lab
-You'll need several environment parameters (provided by instructor in a proctored session)
-  ```bash 
-  export CONCOURSE_TEAM_NAME=
-  export CONCOURSE_PIPELINE_URL=
-  export GITHUB_USERNAME=
-  export CONCOURSE_USERNAME=
-  export CONCOURSE_PASSWORD=
-  ```
 
 * Fork this repository in to your own github account
 * Clone your fork of this repository locally
 ```bash
-git clone git@github.com/$GITHUB_USERNAME/concourse-training.git
+git clone git@github.com:$GITHUB_USERNAME/sw-concourse-training.git
 ```
 
 * Edit the `nginx_release/ci/settings.yml` file
@@ -37,13 +29,24 @@ This is also a common pattern used in managing more complicated pipelines
 
 * rename `set_env.sh.example` to set_env.sh and fill in the information it asks for and then source the file
 ```bash
+  #These variables are provided by your instructor
+  export CONCOURSE_TEAM_NAME=
+  export CONCOURSE_PIPELINE_URL=
+  export GITHUB_USERNAME=
+  export CONCOURSE_USERNAME=
+  export CONCOURSE_PASSWORD=
+```
+* Source the file in to your shell.
+```bash
 source set_env.sh 
 ```
+
 
 ### Create your release
   ```bash
   cd nginx_release
-  bosh create-release --force --tarball releases/release.gz
+  mkdir releases
+  bosh create-release --force --tarball releases/release.gz --timestamp-version 
   ```
   You should now have a BOSH Release in the releases of this project
 
@@ -96,6 +99,12 @@ But we need to actually make sure our pipeline knows how to access this release.
 Have a look at ci/lab2.yml, and we'll merge those changes in to your pipeline
 ```bash 
 spruce merge --prune github --prune release  ci/settings.yml ci/lab2.yml > ci/pipeline.yml
+```
+
+### Commit your release and push it back up to your Github fork
+```bash
+git commit -am 'updated release task'
+git push
 ```
 
 ### Update the pipeline
