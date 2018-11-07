@@ -3,7 +3,6 @@ This training session built to be taken after our basic BOSH course.  The goal o
 upgrade the Hello World bosh release that is deployed in that session.
 
 ---
----
 ## Prerequisites
   * `fly` cli is installed
   * `bosh` cli is installed
@@ -12,7 +11,6 @@ upgrade the Hello World bosh release that is deployed in that session.
   * A Github Account and your Github user name
   
 ---  
----
 ## Lab 1: Setup your Environment
 
 ### How to setup this lab
@@ -71,7 +69,7 @@ spruce merge ci/settings.yml ci/lab1.yml > ci/pipeline.yml
 ```
 
 ```bash
-fly -t tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
 
 ### Login to the concourse WEB UI
@@ -80,7 +78,6 @@ fly -t tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 * Find your pipeline on the Left of the interface
 * New pipelines start in a paused state, you can now run your pipeline
 
----
 ---
 ## Lab 2: Building Our first Tasks
 * Open `ci/tasks/upload-release.sh`
@@ -147,7 +144,6 @@ Once again we set the pipeline
 fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
 
----
 ---
 ### Extra Credit
 * Refactor the upload-release task to move the training-bosh.pem file in to a file
