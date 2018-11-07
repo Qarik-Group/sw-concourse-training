@@ -9,6 +9,6 @@ release:
   name: (( concat github.username "-nginx" ))
 
 github:
-  username: <replace-with-github-username>
+  username: (( grab $GITHUB_USERNAME ))
   branch: master
   repository: (( concat "https://github.com/" github.username "/sw-concourse-training.git" ))
