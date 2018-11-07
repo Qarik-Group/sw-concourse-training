@@ -153,3 +153,15 @@ fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-
 or s3 resource
 * Update the pipeline to trigger on commit to the BOSH repo
 * Point out as many security problems as you can in this release
+
+---
+---
+## Lab 4: Add a Upload Release Task to the release
+
+---
+---
+## Lab 5: Using a Credentials file with Concourse
+
+---
+---
+## Lab 6: Using Vault with Concourse
