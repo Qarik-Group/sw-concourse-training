@@ -6,9 +6,9 @@ set -x
 #But this does not demonostrate a best practice
 
 export CA_CERT_URL=https://unreal-snw.s3.amazonaws.com/training-bosh.pem
+export BOSH_ENVIRONMENT=10.4.1.4
 export BOSH_DEPLOYMENT=${GITHUB_USERNAME}-nginx
 export BOSH_DIRECTOR=$(bosh int ~/creds.yml --path /bosh_url)
-export BOSH_ENVIRONMENT=training
 # ** uncomment below as needed
 # export BOSH_CLIENT=admin
 # export BOSH_CLIENT_SECRET=<replace-me>
