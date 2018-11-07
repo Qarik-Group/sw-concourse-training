@@ -87,16 +87,15 @@ fly -t training unpause-pipeline -p ${GITHUB_USERNAME}-pipeline
 
 ## Lab 2: Building Our first Tasks
 * Open `ci/tasks/upload-release.sh`
-* Edit the following environment variables if necessary. The CA_CERT_URL will usually change, the other defaults align with the [S&W BOSH Cloud Superhero Training](https://github.com/starkandwayne/cloud-superhero-training/tree/master/BOSH)
+* Edit the following environment variables with the values found in the supplied creds.yml or with the values supplied by your proctor.
 
   ```bash
   export CA_CERT_URL=<S3_object_URL>
+  export BOSH_CLIENT_SECRET=<bosh password>
   export BOSH_DEPLOYMENT=<deployment name>
   export BOSH_DIRECTOR=<bosh director url>
   export BOSH_ENVIRONMENT=<bosh director ip>
-  # ** uncomment below as needed
-  # export BOSH_CLIENT=<bosh user>
-  # export BOSH_CLIENT_SECRET=<bosh password>
+  export BOSH_CLIENT=<bosh user>
   ```
 
 The rest of the task should look familiar if you've been through the BOSH training course
@@ -123,15 +122,16 @@ fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ---
 ## Lab 3: Add a Deploy Task to the release
 * Open ci/tasks/upload-release.sh
-* Add the following environment variables, provided by the course proctor
+* Edit the following environment variables with the values found in the supplied creds.yml or with the values supplied by your proctor.
 
-```bash
+  ```bash
+  export CA_CERT_URL=<S3_object_URL>
+  export BOSH_CLIENT_SECRET=<bosh password>
   export BOSH_DEPLOYMENT=<deployment name>
   export BOSH_DIRECTOR=<bosh director url>
   export BOSH_ENVIRONMENT=<bosh director ip>
   export BOSH_CLIENT=<bosh user>
-  export BOSH_CLIENT_SECRET=<bosh password>
-```
+  ```
 ### Deploy the Release
 
 ### Preparing your release for deployment
