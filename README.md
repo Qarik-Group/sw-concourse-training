@@ -87,15 +87,17 @@ fly -t training unpause-pipeline -p ${GITHUB_USERNAME}-pipeline
 
 ## Lab 2: Building Our first Tasks
 * Open `ci/tasks/upload-release.sh`
-* Add the following environment variables, provided by the course proctor
+* Edit the following environment variables if necessary, the defaults align with the [S&W BOSH Cloud Superhero Training](https://github.com/starkandwayne/cloud-superhero-training/tree/master/BOSH)
 
-```bash
+  ```bash
   export BOSH_DEPLOYMENT=<deployment name>
   export BOSH_DIRECTOR=<bosh director url>
   export BOSH_ENVIRONMENT=<bosh director ip>
-  export BOSH_CLIENT=<bosh user>
-  export BOSH_CLIENT_SECRET=<bosh password>
-```
+  # ** uncomment below as needed
+  # export BOSH_CLIENT=<bosh user>
+  # export BOSH_CLIENT_SECRET=<bosh password>
+  ```
+
 The rest of the task should look familiar if you've been through the BOSH training course
 But we need to actually make sure our pipeline knows how to access this release.
 
