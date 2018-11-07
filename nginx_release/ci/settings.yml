@@ -1,12 +1,12 @@
 ---
 meta:
-  name:   <replace-me>-demo
+  name:   (( concat release.name "-demo" ))
   target: training
   url:    https://pipes.starkandwayne.com
   pipeline: (( grab meta.name ))
 
 release:
-  name: <replace-me>-nginx
+  name: (( concat github.username "-nginx" ))
 
 github:
   username: <replace-with-github-username>

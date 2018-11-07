@@ -23,24 +23,25 @@ upgrade the Hello World bosh release that is deployed in that session.
 git clone git@github.com:$GITHUB_USERNAME/sw-concourse-training.git
 ```
 
-* Edit the `nginx_release/ci/settings.yml` file
-These settings will be interpolated in to other files throughout the tuotorial and save you some typing
+* Edit the `nginx_release/ci/settings.yml` file to set your github username.
+These settings will be interpolated in to other files throughout the tutorial and save you some typing
 This is also a common pattern used in managing more complicated pipelines
 
 * rename `set_env.sh.example` to set_env.sh and fill in the information it asks for and then source the file
 ```bash
-  #These variables are provided by your instructor
-  export CONCOURSE_TEAM_NAME=
+  # These variables are fixed values that typically won't change
+  export CONCOURSE_TEAM_NAME=${USER}
+  export CONCOURSE_USERNAME=admin
+  # These variables are provided by your instructor
   export CONCOURSE_PIPELINE_URL=
   export GITHUB_USERNAME=
-  export CONCOURSE_USERNAME=
+
   export CONCOURSE_PASSWORD=
 ```
 * Source the file in to your shell.
 ```bash
 source set_env.sh 
 ```
-
 
 ### Create your release
   ```bash
@@ -57,11 +58,11 @@ git push
 ```
 
 ### Installing the `fly` Command
-Visit <CONCOURE_URL> and get the URL from the lower right
+Visit <CONCOURSE_URL> and get the URL from the lower right
 
 ### Targeting your concourse Pipeline
 ```
-fly --target concourse-tutorial   login --concourse-url $CONCOURSE_PIPELINE_URL -k  -n $CONCOURSE_TEAM_NAME  -u $CONCOURSE_USERNAME -p $CONCOURSE_PASSWORD
+fly --target training   login --concourse-url $CONCOURSE_PIPELINE_URL -k  -n $CONCOURSE_TEAM_NAME  -u $CONCOURSE_USERNAME -p $CONCOURSE_PASSWORD
 ```
 
 Have a look at `ci/lab1.yml`, and we'll merge those changes in to your pipeline
@@ -70,7 +71,7 @@ spruce merge ci/settings.yml ci/lab1.yml > ci/pipeline.yml
 ```
 
 ```bash
-fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+fly -t tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
 
 ### Login to the concourse WEB UI
@@ -110,7 +111,7 @@ git push
 ### Update the pipeline
 Every time we make a chance to our pipeline we'll need to reset the pipeline
 ```bash
-fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
 
 ---
@@ -143,7 +144,7 @@ spruce merge --prune github --prune release  ci/settings.yml ci/lab3.yml > ci/pi
 
 Once again we set the pipeline 
 ```bash
-fly -t concourse-tutorial set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
 
 ---
