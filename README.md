@@ -2,15 +2,15 @@
 This training session built to be taken after our basic BOSH course.  The goal of the training is to deploy and
 upgrade the Hello World bosh release that is deployed in that session.
 
----
+
 ## Prerequisites
   * `fly` cli is installed
   * `bosh` cli is installed
   * Familiarity with BOSH enough to understand a basic BOSH release
   * Access to a lab BOSH director and all the necessary credentials
   * A Github Account and your Github user name
-  
----  
+
+
 ## Lab 1: Setup your Environment
 
 ### How to setup this lab
@@ -84,7 +84,7 @@ To unpause your pipeline you'll run the command:
 fly -t training unpause-pipeline -p ${GITHUB_USERNAME}-pipeline
 ```
 
----
+
 ## Lab 2: Building Our first Tasks
 * Open `ci/tasks/upload-release.sh`
 * Add the following environment variables, provided by the course proctor
@@ -157,14 +157,39 @@ or s3 resource
 * Update the pipeline to trigger on commit to the BOSH repo
 * Point out as many security problems as you can in this release
 
----
----
-## Lab 4: Add a Upload Release Task to the release
 
----
----
+## Lab 4: Split upload and deploy into multiple jobs and add a trigger
+
+
+```bash
+spruce merge --prune release  ci/settings.yml ci/lab4.yml > ci/pipeline.yml
+```
+
+Once again we set the pipeline 
+```bash
+fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+```
+
+
 ## Lab 5: Using a Credentials file with Concourse
 
----
----
+```bash
+spruce merge --prune release  ci/settings.yml ci/lab5.yml > ci/pipeline.yml
+```
+
+Once again we set the pipeline 
+```bash
+fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+```
+
 ## Lab 6: Using Vault with Concourse
+
+```bash
+spruce merge --prune release  ci/settings.yml ci/lab6.yml > ci/pipeline.yml
+```
+
+Once again we set the pipeline 
+```bash
+fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
+```
+
