@@ -47,7 +47,7 @@ source set_env.sh
   ```bash
   cd nginx_release
   mkdir releases
-  bosh create-release --force --tarball releases/release.gz --timestamp-version 
+  bosh create-release --force --name=${GITHUB_USERNAME}-nginx --tarball releases/release.gz --timestamp-version 
   ```
   You should now have a BOSH Release in the releases of this project
 
