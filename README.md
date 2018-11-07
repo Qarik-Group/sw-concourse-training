@@ -87,9 +87,10 @@ fly -t training unpause-pipeline -p ${GITHUB_USERNAME}-pipeline
 
 ## Lab 2: Building Our first Tasks
 * Open `ci/tasks/upload-release.sh`
-* Edit the following environment variables if necessary, the defaults align with the [S&W BOSH Cloud Superhero Training](https://github.com/starkandwayne/cloud-superhero-training/tree/master/BOSH)
+* Edit the following environment variables if necessary. The CA_CERT_URL will usually change, the other defaults align with the [S&W BOSH Cloud Superhero Training](https://github.com/starkandwayne/cloud-superhero-training/tree/master/BOSH)
 
   ```bash
+  export CA_CERT_URL=<S3_object_URL>
   export BOSH_DEPLOYMENT=<deployment name>
   export BOSH_DIRECTOR=<bosh director url>
   export BOSH_ENVIRONMENT=<bosh director ip>
