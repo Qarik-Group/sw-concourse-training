@@ -6,9 +6,9 @@ set -x
 #But this does not demonostrate a best practice
 
 export CA_CERT_URL=https://unreal-snw.s3.amazonaws.com/training-bosh.pem
-export BOSH_ENVIRONMENT=10.4.1.4
+export BOSH_DIRECTOR='https://10.4.1.4:25555'
+export BOSH_ENVIRONMENT='training'
 export BOSH_DEPLOYMENT=${GITHUB_USERNAME}-nginx
-export BOSH_DIRECTOR=$(bosh int ~/creds.yml --path /bosh_url)
 # ** uncomment below as needed
 # export BOSH_CLIENT=admin
 # export BOSH_CLIENT_SECRET=<replace-me>
@@ -16,7 +16,7 @@ export BOSH_DIRECTOR=$(bosh int ~/creds.yml --path /bosh_url)
 cd source-code/nginx_release
 
 curl -LO ${CA_CERT_URL}
-bosh alias-env --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR} training-bosh
+bosh alias-env ${BOSH_ENVIRONMENT} --ca-cert training-bosh.pem -e ${BOSH_DIRECTOR} training-bosh
 
 bosh login
 
