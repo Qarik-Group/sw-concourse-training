@@ -78,6 +78,12 @@ fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 * Find your pipeline on the Left of the interface
 * New pipelines start in a paused state, you can now run your pipeline
 
+### Unpause your Concourse Pipeline
+To unpause your pipeline you'll run the command:
+```bash
+fly -t training unpause-pipeline -p ${GITHUB_USERNAME}-pipeline
+```
+
 ---
 ## Lab 2: Building Our first Tasks
 * Open `ci/tasks/upload-release.sh`
