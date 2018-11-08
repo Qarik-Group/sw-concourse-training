@@ -13,10 +13,36 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path:  source-code/nginx_release/ci/tasks/upload-release.sh
+        path: source-code/nginx_release/ci/tasks/upload-release.sh
       inputs:
         - name: source-code
         - name: cert-file
+- name: job-deploy-release
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+    passed: [job-upload-release]
+    params: { depth: 1 }
+  - get: cert-file
+  - task: deploy-release
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: starkandwayne/concourse}
+      run:
+        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+      inputs:
+        - name: source-code
+        - name: cert-file
+
+resource_types:
+  - name: file-url
+    type: docker-image
+    source:
+      repository: pivotalservices/concourse-curl-resource
+      tag: latest
 
 resources:
 - name: source-code
