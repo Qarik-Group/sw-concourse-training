@@ -33,3 +33,5 @@ Every time we make a chance to our pipeline we'll need to reset the pipeline
 ```bash
 fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 ```
+
+Run the pipeline in the Web-UI and when it succeeds move on to [Lab-3](lab-3.md)
