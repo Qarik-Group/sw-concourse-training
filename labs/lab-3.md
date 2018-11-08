@@ -30,10 +30,10 @@ working state.  We'll want to create that release again here and push it back to
 
 - Commit your release and push it back up to your Github fork
 
-        ```bash
-        git commit -am 'updated release task'
-        git push
-        ```
+	```bash
+	git commit -am 'updated release task'
+	git push
+	```
 
 - Once again we set the pipeline 
 
