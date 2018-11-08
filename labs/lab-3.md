@@ -33,5 +33,7 @@ working state.  We'll want to create that release again here and push it back to
 	```bash
 	fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 	```
+	
+- At this point, a stemcell might need to be uploaded to complete the deploy-release concourse job.
 
-Run the pipeline in the Web-UI and when it succeeds move on to [Lab-3](lab-3.md)
+Run the pipeline in the Web-UI and when it succeeds move on to [Lab-4](lab-4.md)
