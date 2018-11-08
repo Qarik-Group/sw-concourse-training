@@ -2,34 +2,36 @@
 
 ### How to setup this lab
 
-* Fork this repository in to your own github account
-* Clone your fork of this repository locally
+1. [Fork this repository](https://help.github.com/articles/fork-a-repo/) in to your own github account
+1. Clone your fork of this repository locally.
 
-	```bash
-	git clone git@github.com:$GITHUB_USERNAME/sw-concourse-training.git
-	```
+    ```bash
+    export GITHUB_USERNAME=<your_github_username>
+    git clone git@github.com:$GITHUB_USERNAME/sw-concourse-training.git
+    ```
 
-* Edit the `nginx_release/ci/settings.yml` file to set your github username. These settings will be interpolated in to other files throughout the tutorial and save you some typing
-This is also a common pattern used in managing more complicated pipelines
+1. Edit the `nginx_release/ci/settings.yml` file to set your github username. These settings will be interpolated in to other files throughout the tutorial and save you some typing.
 
-* rename `set_env.sh.example` to set_env.sh and fill in the information it asks for and then source the file
+NOTE: This is also a common pattern used in managing more complicated pipelines.
 
-	```bash
-	  # These variables are fixed values that typically won't change
-	  export CONCOURSE_TEAM_NAME=${USER}
-	  export CONCOURSE_USERNAME=admin
-	  # These variables are provided by your instructor
-	  export CONCOURSE_PIPELINE_URL=
-	  export GITHUB_USERNAME=
-	
-	  export CONCOURSE_PASSWORD=
-	```
+1. Rename `set_env.sh.example` to `set_env.sh` and fill in the information it asks for and then source the file.
 
-* Source the file in to your shell.
+    ```bash
+      # These variables are fixed values that typically won't change
+      export CONCOURSE_TEAM_NAME=${USER}
+      export CONCOURSE_USERNAME=admin
+      # These variables are provided by your instructor
+      export CONCOURSE_PIPELINE_URL=
+      export GITHUB_USERNAME=
 
-	```bash
-	source set_env.sh 
-	```
+      export CONCOURSE_PASSWORD=
+    ```
+
+1. Source the file in to your shell.
+
+    ```bash
+    source set_env.sh 
+    ```
 
 ### Create Your First Release
 - Create your release
