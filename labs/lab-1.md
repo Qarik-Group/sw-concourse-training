@@ -22,7 +22,6 @@ NOTE: This is also a common pattern used in managing more complicated pipelines.
     export CONCOURSE_TEAM_NAME=${USER}
     export CONCOURSE_USERNAME=admin
     # These variables are provided by your instructor
-    export CONCOURSE_TEAM_NAME=<concourse_team_name>
     export CONCOURSE_PIPELINE_URL=<pipeline_url>
     export GITHUB_USERNAME=<github_username>
     export CONCOURSE_PASSWORD=<concourse_password>
