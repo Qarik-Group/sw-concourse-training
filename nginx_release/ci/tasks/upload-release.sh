@@ -7,7 +7,7 @@ set -x
 
 export CA_CERT_URL=https://unreal-snw.s3.amazonaws.com/training-bosh.pem
 export BOSH_CLIENT_SECRET=<replace-me>
-export BOSH_DEPLOYMENT=${GITHUB_USERNAME}-nginx
+export BOSH_DEPLOYMENT=<replace-me-with-github-user>-nginx
 export BOSH_DIRECTOR='https://10.4.1.4:25555'
 export BOSH_ENVIRONMENT='training'
 export BOSH_CLIENT=admin
