@@ -1,4 +1,4 @@
-## Lab 7: DRYing up the Variables (DRY => Do not Repeat Yourself)
+## Lab 8: Using Vault with Concourse
 
 ```bash
 spruce merge --prune release  ci/settings.yml ci/lab6.yml > ci/pipeline.yml

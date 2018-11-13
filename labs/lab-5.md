@@ -146,5 +146,9 @@ diff -U 100 ci/tasks/upload-release.sh ci/tasks/upload-release-supplied-cert.sh
 	```bash
 	fly -t training set-pipeline -c ci/pipeline.yml -p ${GITHUB_USERNAME}-pipeline
 	```
+	
+You should have ended up with a pipeline that looks like:
 
-Run the pipeline in the Web-UI and when it succeeds move on to [Lab-6](lab-6.md)
+![Lab-5 Pipeline](./images/lab5_pipeline_Concourse.png)
+
+The pipeline should automatically start when you push your code repo. When you are ready, you can move on to [Lab-6](lab-6.md)
