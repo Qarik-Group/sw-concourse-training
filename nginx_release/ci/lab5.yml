@@ -4,6 +4,7 @@ jobs:
   public: true
   plan:
   - get: source-code
+    trigger: true
     params: { depth: 1 }
   - get: cert-file
   - task: upload-release
