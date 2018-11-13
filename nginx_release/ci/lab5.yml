@@ -14,7 +14,7 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/upload-release.sh
+        path: source-code/nginx_release/ci/tasks/upload-release-supplied-cert.sh
       inputs:
         - name: source-code
         - name: cert-file
@@ -33,7 +33,7 @@ jobs:
         type: docker-image
         source: {repository: starkandwayne/concourse}
       run:
-        path: source-code/nginx_release/ci/tasks/deploy-release.sh
+        path: source-code/nginx_release/ci/tasks/deploy-release-supplied-cert.sh
       inputs:
         - name: source-code
         - name: cert-file
