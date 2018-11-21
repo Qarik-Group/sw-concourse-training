@@ -1,0 +1,21 @@
+---
+meta:
+  name:   (( concat release.name "-demo" ))
+  target: training
+  url:    https://pipes.starkandwayne.com
+  pipeline: (( grab meta.name ))
+
+release:
+  name: (( concat github.username "-nginx" ))
+
+github:
+  username: (( grab $GITHUB_USERNAME ))
+  branch: master
+  repository: (( concat "https://github.com/" github.username "/sw-concourse-training.git" ))
+
+bosh:
+  deployment: (( grab release.name ))
+  client_user: ((bosh.client))
+  client_secret: ((bosh.client_secret))
+  url: ((bosh.uri))
+  ca_cert: ((bosh.ca_cert))
